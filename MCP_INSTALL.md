@@ -6,7 +6,7 @@
 
 - macOS 14 或更高版本。
 - Node.js 20 或更高版本。
-- Python 3.9 或更高版本。
+- Python 3.10 或更高版本。
 - 启动 MCP 的宿主应用已获得 Accessibility 和 Screen Recording 权限。
 - Calculator、TextEdit、Safari 为 live matrix 所需系统应用；Edge matrix 需要安装 Microsoft Edge。
 

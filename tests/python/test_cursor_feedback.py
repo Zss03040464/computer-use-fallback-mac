@@ -80,7 +80,7 @@ class CursorFeedbackTest(unittest.TestCase):
         self.assertGreater(hotspot[1], 0)
 
         alpha = patch.getchannel("A")
-        alpha_values = list(alpha.getdata())
+        alpha_values = list(alpha.get_flattened_data())
         self.assertTrue(any(0 < value < 40 for value in alpha_values))
         self.assertTrue(any(120 < value < 220 for value in alpha_values))
         self.assertGreaterEqual(max(alpha_values), 220)
@@ -93,7 +93,7 @@ class CursorFeedbackTest(unittest.TestCase):
 
         pale_pixels = [
             pixel
-            for pixel in patch.getdata()
+            for pixel in patch.get_flattened_data()
             if pixel[3] > 120
         ]
         self.assertTrue(pale_pixels)

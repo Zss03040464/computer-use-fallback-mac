@@ -9,10 +9,10 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class PythonCompatibilityTest(unittest.TestCase):
-    def test_runtime_sources_parse_with_python_3_9_grammar(self):
+    def test_runtime_sources_parse_with_minimum_supported_python_grammar(self):
         for source_path in (ROOT / "runtime").rglob("*.py"):
             source = source_path.read_text(encoding="utf-8")
-            ast.parse(source, filename=str(source_path), feature_version=9)
+            ast.parse(source, filename=str(source_path), feature_version=10)
 
     def test_dom_identifier_attribute_has_old_pyobjc_fallback(self):
         self.assertEqual(AX_DOM_IDENTIFIER_ATTRIBUTE, "AXDOMIdentifier")
