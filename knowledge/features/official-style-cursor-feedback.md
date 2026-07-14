@@ -1,0 +1,11 @@
+# Official-style cursor feedback
+
+Successful mouse-like actions produce one target-bound cursor record per MCP session. The record contains the input/image coordinates, global display point, bundle/process/window identity, action, button phase and timestamp.
+
+The click-through AppKit overlay and `get_app_state` PNG compositor share geometry, palette and pulse timing from `runtime/cu_runtime/cursor_feedback.py`. Initial state has no cursor. A verified click/release creates a pulse that decays to the steady cursor; target mismatch, malformed state and out-of-bounds coordinates draw nothing.
+
+The current style is `fallback-official-aqua-arrow-v2`. Its visible core is 13 by 18 logical pixels, with a translucent cool-white body, near-white edge, soft non-ring bloom and weak aqua clipped-tail edge. PNG output is rendered at 4x inside a bounded patch and downsampled with Lanczos. The AppKit path uses the same original geometry and palette. The legacy screenshot helper delegates to the shared compositor, so the three rendering paths cannot drift. No official image/vector asset is stored.
+
+Feedback is post-delivery and best effort. The first half of a session-owned down/up gesture is the only pending state and is explicitly labeled `cursorFeedback.delivery=pending`; matching mouse-up completes it. A cursor-file or overlay error is returned as warning metadata and cannot turn completed input into a failed action that callers may replay. Unsupported input still fails before delivery. The overlay watches an explicit persistent owner PID, rejects PID 0/1, and exits when that owner disappears. Its window is a nonactivating `NSPanel`, and the process uses `NSApplicationActivationPolicyProhibited`; foreground identity is verified by exact PID. Legacy cleanup additionally requires exact session/state/PID-file/owner command identity.
+
+Verified by `tests/python/test_cursor_feedback.py`, `test_cursor_specimen.py`, `test_action_service.py`, `test_target_service.py`, `tests/live/overlay-focus-isolation.test.mjs`, covered integration, two-session integration and the Calculator/TextEdit/Safari/Edge native matrix. The live gates use `tests/fixtures/input_activity_snapshot.py` only as a read-only HID source monitor: an unchanged pointer is still required without hardware motion, and any non-HID mouse-move event fails the gate.

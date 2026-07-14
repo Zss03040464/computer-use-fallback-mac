@@ -1,0 +1,10 @@
+computer-use-fallback-mac
+Copyright (c) 2026 repository contributors
+
+This repository contains a standalone Computer Use component extracted from and substantially modified after the `NanmiCoder/cc-haha` project:
+
+https://github.com/NanmiCoder/cc-haha
+
+The existing MIT license and upstream attribution are preserved in LICENSE. The repository's maintainers do not claim ownership of upstream material. New runtime architecture, tests, documentation and independently rendered cursor assets are modifications made for this component.
+
+This notice is informational and is not legal advice. Complete an independent provenance and license review before changing this repository from private to public or redistributing it.

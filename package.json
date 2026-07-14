@@ -1,0 +1,44 @@
+{
+  "name": "computer-use-fallback-mac",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "App-targeted macOS Computer Use MCP with background window capture and physical-pointer isolation.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zss03040464/computer-use-fallback-mac.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zss03040464/computer-use-fallback-mac/issues"
+  },
+  "homepage": "https://github.com/Zss03040464/computer-use-fallback-mac#readme",
+  "scripts": {
+    "start": "node start-mcp.mjs",
+    "test": "npm run test:ci",
+    "test:control": "node test-control.mjs",
+    "test:advanced": "node test-advanced.mjs",
+    "test:virtual-static": "node test-virtual-mouse-static.mjs",
+    "test:virtual-actions": "node test-virtual-mouse-actions.mjs",
+    "test:virtual-cursor-visual": "node test-virtual-cursor-visual.mjs",
+    "test:live-cursor-overlay": "node test-live-cursor-overlay.mjs",
+    "test:overlay-style": "node test-overlay-style.mjs",
+    "test:screenshot-resize": "node test-screenshot-resize-options.mjs",
+    "test:installability": "node test-installability.mjs",
+    "test:python": ".venv/bin/python3 -m unittest discover -s tests/python -p 'test_*.py' -v",
+    "test:node": "node --test tests/node/*.test.mjs",
+    "test:unit": "npm run test:python && npm run test:node",
+    "test:integration": "node --test --test-concurrency=1 tests/integration/*.test.mjs",
+    "test:live": "node --test --test-concurrency=1 tests/live/*.test.mjs",
+    "test:clean-install": "node tests/packaging/clean-copy-smoke.mjs",
+    "test:ci": "npm run test:unit && npm run test:integration && npm run test:virtual-static && npm run test:overlay-style && npm run test:installability",
+    "test:all": "npm run test:ci && npm run test:live && npm run test:live-cursor-overlay",
+    "cleanup:cursor": "node scripts/cleanup-virtual-cursor.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.1"
+  }
+}

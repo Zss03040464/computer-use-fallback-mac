@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "project",
+      "type": "text",
+      "text": "computer-use-fallback-mac\nExplicit app/window target\nPhysical pointer isolation",
+      "x": 0,
+      "y": 0,
+      "width": 280,
+      "height": 100
+    },
+    {
+      "id": "architecture",
+      "type": "file",
+      "file": "architecture/app-targeted-runtime.md",
+      "x": 380,
+      "y": -180,
+      "width": 300,
+      "height": 90
+    },
+    {
+      "id": "feature",
+      "type": "file",
+      "file": "features/official-style-cursor-feedback.md",
+      "x": 380,
+      "y": -50,
+      "width": 300,
+      "height": 90
+    },
+    {
+      "id": "quality",
+      "type": "file",
+      "file": "quality/background-control-verification.md",
+      "x": 380,
+      "y": 80,
+      "width": 300,
+      "height": 90
+    },
+    {
+      "id": "task",
+      "type": "file",
+      "file": "tasks/2026-07/official-cursor-feedback.md",
+      "x": 380,
+      "y": 210,
+      "width": 300,
+      "height": 90
+    }
+  ],
+  "edges": [
+    {
+      "id": "project-architecture",
+      "fromNode": "project",
+      "fromSide": "right",
+      "toNode": "architecture",
+      "toSide": "left"
+    },
+    {
+      "id": "project-feature",
+      "fromNode": "project",
+      "fromSide": "right",
+      "toNode": "feature",
+      "toSide": "left"
+    },
+    {
+      "id": "project-quality",
+      "fromNode": "project",
+      "fromSide": "right",
+      "toNode": "quality",
+      "toSide": "left"
+    },
+    {
+      "id": "project-task",
+      "fromNode": "project",
+      "fromSide": "right",
+      "toNode": "task",
+      "toSide": "left"
+    }
+  ]
+}
