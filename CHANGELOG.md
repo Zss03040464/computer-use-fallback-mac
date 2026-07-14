@@ -14,6 +14,7 @@ All notable changes to this project are documented here. The format follows Keep
 
 - Worker calls now use bounded persistent JSON Lines protocols with structured errors and shutdown.
 - The public repository surface now contains stable product, architecture and verification documentation only.
+- Pillow is locked to 12.3.0 and the documented minimum Python version is 3.10.
 
 ## [0.2.0] - 2026-07-14
 

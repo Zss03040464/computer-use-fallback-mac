@@ -1,4 +1,4 @@
-Pillow==11.3.0
+Pillow==12.3.0
 pyobjc-core==11.1
 pyobjc-framework-ApplicationServices==11.1
 pyobjc-framework-Cocoa==11.1

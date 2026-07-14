@@ -52,6 +52,7 @@ if (!bridge.includes('ensureBootstrapped') || !bridge.includes('requirements.txt
 }
 
 const requirements = read('runtime/requirements.txt').toLowerCase();
+const directRequirements = read('runtime/requirements.in');
 for (const dependency of ['pyobjc-framework-applicationservices', 'pyobjc-framework-cocoa', 'pyobjc-framework-quartz', 'pyobjc-framework-screencapturekit', 'pyobjc-framework-vision', 'pillow']) {
   if (!requirements.includes(dependency)) {
     throw new Error(`runtime/requirements.txt missing ${dependency}`);
@@ -63,6 +64,9 @@ if (requirements.includes('pyautogui') || requirements.includes('mss')) {
 if (!requirements.includes('--hash=sha256:') || !bridge.includes("'--require-hashes'")) {
   throw new Error('Python bootstrap must install the hash-verified dependency lock');
 }
+if (!directRequirements.includes('Pillow==12.3.0') || !requirements.includes('pillow==12.3.0')) {
+  throw new Error('Python dependency lock must use the verified Pillow 12.3.0 release');
+}
 if (bridge.includes("'--upgrade', 'pip'")) {
   throw new Error('Bootstrap must not replace pip with an unpinned network version');
 }
@@ -70,6 +74,7 @@ if (bridge.includes("'--upgrade', 'pip'")) {
 const installDoc = read('MCP_INSTALL.md');
 for (const phrase of [
   'Generic MCP stdio configuration',
+  'Python 3.10',
   'Verify the tool surface',
   'virtual_cursor_overlay',
   'test:unit',
