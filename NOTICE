@@ -1,0 +1,8 @@
+computer-use-fallback-mac
+Copyright (c) 2026 Zss03040464 and computer-use-fallback-mac contributors
+
+This distribution is licensed under the MIT License in LICENSE.
+
+Project-specific source code, tests, documentation and cursor artwork are independently developed and maintained by this repository's contributors.
+
+The project integrates public macOS APIs through PyObjC and uses external packages listed in package-lock.json and the hash-verified Python dependency lock. Those packages retain their own licenses and copyright notices.
