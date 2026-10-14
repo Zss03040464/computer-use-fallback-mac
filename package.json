@@ -36,6 +36,6 @@
     "cleanup:cursor": "node scripts/cleanup-virtual-cursor.mjs"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.4.1"
+    "@modelcontextprotocol/sdk": "^1.31.0"
   }
 }
